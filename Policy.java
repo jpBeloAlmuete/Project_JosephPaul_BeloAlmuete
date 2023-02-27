@@ -9,7 +9,16 @@ public class Policy{
     private double height;
     private double weight;
     
-    //setting the non-Arg constructor
+    /**Setting the non-Arg constructor
+     * @param age
+     * @param policyNumber
+     * @param providerName
+     * @param firstName
+     * @param lastName
+     * @param smokingStatus
+     * @param height
+     * @param weight
+     * */
     public Policy(){
         age = 0;
         policyNumber = 0;
@@ -20,7 +29,26 @@ public class Policy{
         height = 0.0;
         weight = 0.0;
     }
-    //setting constructor
+    /**setting constructor
+     * @param a
+     * @param num
+     * @param provName
+     * @param fName
+     * @param lName
+     * @param smokStatus
+     * @param h
+     * @param w
+     * 
+     * @return age,
+     *  policyNumber,
+     *  providerName
+     *  firstName,
+     *  lastName,
+     *  smokingStatus,
+     *  height,
+     *  weight.
+     * 
+     * */
     public Policy(int a, int num, String provName, String fName, String lName, String smokStatus, double h, double w){
         age = a;
         policyNumber = num;
