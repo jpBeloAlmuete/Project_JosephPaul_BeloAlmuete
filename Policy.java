@@ -81,7 +81,11 @@ public class Policy{
     public double getWeight(){
         return weight;
     }
-    //Calculates the Policyholder's BMI
+    /**Calculates the Policyholder's BMI
+     *@return total BMI
+     *
+     *  */
+
     public double getBMI()
     {
     final double CONVFACTOR = 703;
@@ -89,7 +93,10 @@ public class Policy{
     return (weight * CONVFACTOR) / (height * height);
     }
 
-    //Calculates the Policy's price
+    /**
+     * getPrice calculates the total price of the Policy, taking in account the age, smoking status and BMI
+     * @return price
+     */
     public double getPrice()
     {
     final double BASE_PRICE = 600;
@@ -115,7 +122,9 @@ public class Policy{
     return price;
     }
 
-    //Displays information about the Policy
+    /**Displays information about the Policy
+     * @returns set of Strings
+     * */
     public void displayInformation()
     {
     System.out.println("Policy Number: " + policyNumber);

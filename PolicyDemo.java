@@ -1,6 +1,6 @@
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.io.*;
+import java.io.*; // to read the file and for the IOExceptions
 
 public class PolicyDemo{
     /**
@@ -50,7 +50,7 @@ public class PolicyDemo{
       //System.out.print("Please enter the Policyholder's Weight (in pounds): ");
       String h = inputFile.nextLine();
 
-      //
+      //designates each value to its corresponding reference variable according to its data type
       age = Integer.valueOf(e);
       policyNumber = Integer.valueOf(a);
       providerName = b;
@@ -60,7 +60,8 @@ public class PolicyDemo{
       height = Double.valueOf(g);
       weight = Double.valueOf(h);
       
-      //
+      //counts the number of smoker and non-smoker policies
+      //the counter does work, but the program runs into an error(which i haven't figured how to fix yet) before it can print it out
       if(smokingStatus.equalsIgnoreCase("smoker"))
         pSmokers += 1;
       else
