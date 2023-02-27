@@ -1,7 +1,13 @@
+import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.io.*;
 
 public class PolicyDemo{
-    public static void main(String[] args){
+    /**
+     * @param args
+     * @throws IOException
+     */
+    public static void main(String[] args) throws IOException {
         //declare variables
       int policyNumber;
       String providerName;
@@ -11,38 +17,67 @@ public class PolicyDemo{
       String smokingStatus;
       double height;
       double weight;
-      Scanner keyboard = new Scanner(System.in);
-   
-      //prompt the user to enter information about the Policy   
-      System.out.print("Please enter the Policy Number: ");
-      policyNumber = keyboard.nextInt();
-            
-      System.out.print("Please enter the Provider Name: ");
-      providerName = keyboard.next();
-      
-      System.out.print("Please enter the Policyholder's First Name: ");
-      firstName = keyboard.next();
-      
-      System.out.print("Please enter the Policyholder's Last Name: ");
-      lastName = keyboard.next();
-      
-      System.out.print("Please enter the Policyholder's Age: ");
-      age = keyboard.nextInt();
+      int pSmokers = 0;
+      int pNonSmokers = 0;
 
-      System.out.print("Please enter the Policyholder's Smoking Status (smoker/non-smoker): ");
-      smokingStatus = keyboard.next();
+      // Open the file for reading.
+      File excerciseFile = new File ("PolicyInformation.txt");
+      Scanner inputFile = new Scanner (excerciseFile);
       
-      System.out.print("Please enter the Policyholder's Height (in inches): ");
-      height = keyboard.nextDouble();
+      while (inputFile.hasNext()){
+      //prompt the user to enter information about the Policy   
+      //System.out.print("Please enter the Policy Number: ");
+      String a = inputFile.nextLine();
+          
+      //System.out.print("Please enter the Provider Name: ");
+      String b = inputFile.nextLine();
+     
+      //System.out.print("Please enter the Policyholder's First Name: ");
+      String c = inputFile.nextLine();
+     
+      //System.out.print("Please enter the Policyholder's Last Name: ");
+      String d = inputFile.nextLine();
+     
+      //System.out.print("Please enter the Policyholder's Age: ");
+      String e = inputFile.nextLine();
       
-      System.out.print("Please enter the Policyholder's Weight (in pounds): ");
-      weight = keyboard.nextDouble();
+      //System.out.print("Please enter the Policyholder's Smoking Status (smoker/non-smoker): ");
+      String f = inputFile.nextLine();
       
+      //System.out.print("Please enter the Policyholder's Height (in inches): ");
+      String g = inputFile.nextLine();
+      
+      //System.out.print("Please enter the Policyholder's Weight (in pounds): ");
+      String h = inputFile.nextLine();
+
+      //
+      age = Integer.valueOf(e);
+      policyNumber = Integer.valueOf(a);
+      providerName = b;
+      firstName = c;
+      lastName = d;
+      smokingStatus = f;
+      height = Double.valueOf(g);
+      weight = Double.valueOf(h);
+      
+      //
+      if(smokingStatus.equalsIgnoreCase("smoker"))
+        pSmokers += 1;
+      else
+        pNonSmokers += 1;
       //create a Policy object
       Policy policy = new Policy(age, policyNumber, providerName, firstName, lastName, smokingStatus, height, weight);
       
       //put a blank line before the output
       System.out.println();
       policy.displayInformation();
+
+      inputFile.nextLine();
+
+      }
+      
+      inputFile.close();
+      System.out.println("The number of policies with a smoker is: " + pSmokers);
+      System.out.println("The number of policies with a non-smoker is: " + pNonSmokers);
     }
 }
